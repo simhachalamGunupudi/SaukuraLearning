@@ -3,9 +3,12 @@ import {json}             from 'body-parser';
 import * as cors          from 'cors';
 import * as debugInit     from 'debug';
 import * as helmet        from 'helmet';
+import { SomeModel }      from './models/some-model';
 import {ConfigApi}        from './api/config.api';
+import {SomeApi}          from './api/some-api';
 import {BootstrapIndexes} from './config/bootstrap/bootstrap-indexes';
 import {LogService}       from './services/log-service';
+
 
 const debug = debugInit('app:bootstrap');
 
@@ -21,14 +24,15 @@ export class Bootstrap {
 
     this.sapi = new SakuraApi({
       baseUrl: '/api',
-      models: [],
+      models: [SomeModel],
       plugins: [
       ],
       providers: [
         LogService
       ],
       routables: [
-        ConfigApi
+        ConfigApi,
+        SomeApi
       ]
     });
 

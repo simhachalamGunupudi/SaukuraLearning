@@ -36,6 +36,11 @@ module.exports = {
    * Database configurations for SakuraAPI
    */
   dbConnections: [
+    {
+      mongoClientOptions: {},
+      name: dbs.configdatabase.db,
+      url
+    }
   ],
   /**
    * Logging configuration for SakuraAPI
